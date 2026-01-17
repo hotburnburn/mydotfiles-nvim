@@ -1,0 +1,20 @@
+# 忽略系统生成的文件
+.DS_Store
+thumbs.db
+
+# 忽略插件安装目录（LazyVim 会自动根据配置重新下载插件，不需要上传插件本身）
+# 注意：通常插件不在 .config/nvim 下，而在 ~/.local/share/nvim，但以防万一你放错了位置
+plugin/
+pack/
+
+# 忽略 spell 文件（如果你不想同步拼写检查的历史）
+spell/
+
+# 忽略具体的会话或临时文件
+*.swp
+*.swo
+Session.vim
+
+# !!! 极其重要 !!!
+# 不要忽略 lazy-lock.json
+# !lazy-lock.json
