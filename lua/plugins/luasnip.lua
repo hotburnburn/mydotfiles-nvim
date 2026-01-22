@@ -11,6 +11,51 @@ return {
     local fmt = require("luasnip.extras.fmt").fmt
     local rep = require("luasnip.extras").rep
 
+    ls.add_snippets("rust", {
+      -- 😘 Rust println!
+      s("prin", fmt('println!("{}"{});{}', { i(1), i(2), i(0) })),
+
+      -- 😘 Rust println!({})
+      s("pri", fmt('println!("{{{}}}"{});{}', { i(1), i(2), i(0) })),
+
+      -- 😘 Rust quick main
+      s(
+        "ffm",
+        fmt(
+          [[
+        fn main() {{
+            {}
+        }}
+    ]],
+          { i(0) }
+        )
+      ),
+
+      -- 😘 Rust quick String::from
+      s("sff", fmt("String::from({})", { i(1) })),
+
+      -- 😘 Rust quick Box<dyn >
+      s("bd", fmt("Box<dyn {}>", { i(1) })),
+
+      -- 😘 Rust quick assert and success
+      s(
+        "ass",
+        fmt(
+          [[
+        assert_eq!({}, {});
+        println!("Success!");
+    ]],
+          { i(1), i(2) }
+        )
+      ),
+
+      -- 😘 Rust quick collect::<>
+      s("coll", fmt("collect::<{}>();{}", { i(1), i(0) })),
+
+      -- 😘 Rust quick turbofish
+      s("::", fmt("::<{}>{}", { i(1), i(0) })),
+    })
+
     ls.add_snippets("cpp", {
       -- 1. 读入一个整数 (ii -> int n; cin >> n;)
       s("ii", fmt("int {}; cin >> {};", { i(1, "n"), rep(1) })),
