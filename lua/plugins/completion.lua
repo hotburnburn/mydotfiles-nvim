@@ -16,6 +16,7 @@ return {
         -- 2. 按 Enter 键：仅仅是换行 (Fallback)
         --    这样你就不会因为手快，想换行结果误触了补全
         ["<CR>"] = { "fallback" },
+        ["<A-CR>"] = { "snippet_forward", "fallback" },
       },
     },
   },
