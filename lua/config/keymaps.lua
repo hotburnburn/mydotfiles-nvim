@@ -100,3 +100,12 @@ vim.keymap.set("n", "<C-a>", "ggVG", { desc = "Select All" })
 
 -- 插入模式下：Ctrl+a 全选 (先退到普通模式，再全选)
 vim.keymap.set("i", "<C-a>", "<Esc>ggVG", { desc = "Select All" })
+
+-- 当在命令行输入 %% 时，自动展开为当前文件所在的目录
+vim.keymap.set("c", "%%", function()
+  if vim.fn.getcmdtype() == ":" then
+    return vim.fn.expand("%:h") .. "/"
+  else
+    return "%%"
+  end
+end, { expr = true })
